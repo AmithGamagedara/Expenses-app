@@ -54,7 +54,7 @@ const Expenses = ({ data, onDeleted }: ExpensesProps) => {
     <div className="expenses">
       <div className="expenses-list-header">
         <h2>Your Expenses</h2>
-        <p>Showing 12 of 45 expenses</p>
+        <p>Showing {filteredData.length} of {data.length} expenses</p>
       </div>
       {filteredData.length === 0 ? (
         <p style={{ textAlign: "center" }}>No Expenses Found</p>
