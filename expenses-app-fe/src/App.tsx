@@ -26,6 +26,7 @@ function App() {
 
   return (
     <div className="expense-tracker">
+      <h1>💰 Personal Expense Tracker</h1>
       <div>
         <DataSorting />
       </div>
