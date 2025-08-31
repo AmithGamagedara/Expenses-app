@@ -1,0 +1,21 @@
+.expense-tracker {
+    min-height: 100vh;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 0 220px;
+}
+
+.form-n-expenses-wrapper {
+    display: flex;
+    gap: 20px;
+}
+
+.form-container {
+    width: 30%;
+}
+
+.expenses-container {
+    width: 70%;
+}

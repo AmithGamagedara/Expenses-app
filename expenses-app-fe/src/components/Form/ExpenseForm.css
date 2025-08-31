@@ -1,0 +1,56 @@
+.container {
+    background: white;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+}
+
+.container h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.container label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #333;
+    margin-top: 12px;
+}
+
+.container input,
+.container select,
+.container textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    box-sizing: border-box;
+}
+
+.container textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.container button {
+    width: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 24px;
+    margin-bottom: 8px;
+}
+
+.container button:hover{
+    transform: scale(1.006);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
