@@ -1,11 +1,12 @@
 .expense-tracker {
     min-height: 100vh;
-    padding: 40px;
+    padding: 30px;
     display: flex;
     flex-direction: column;
     gap: 20px;
     margin: 0 auto;
     max-width: 1400px;
+    margin-top: -20px;
 }
 
 .form-n-expenses-wrapper {
@@ -30,7 +31,7 @@
 }
 
 .expense-summary-card{
-    margin-bottom: 16px;
+    margin-bottom: 8px;
 }
 
 

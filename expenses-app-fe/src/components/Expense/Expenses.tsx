@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Expenses.css";
 import { deleteExpense } from "../../api/api";
 import ExpenseCard from "./ExpenseCard";
+import { FilterContext } from "../../context/FilterContext";
 
 interface ExpensesProps {
   data: any[];
@@ -9,6 +10,8 @@ interface ExpensesProps {
 }
 
 const Expenses = ({ data, onDeleted }: ExpensesProps) => {
+  const { category, sortBy, search } = useContext(FilterContext);
+
   const handleDelete = async (id: string) => {
     try {
       await deleteExpense(id);
@@ -19,16 +22,44 @@ const Expenses = ({ data, onDeleted }: ExpensesProps) => {
     }
   };
 
+  //filter expenses by category
+  let filteredData = category
+    ? data.filter((expense) => expense.category === category)
+    : data;
+
+  //sorting expences
+  if (sortBy === "amountAsc") {
+    filteredData.sort((a, b) => b.amount - a.amount);
+  } else if (sortBy === "amountDesc") {
+    filteredData.sort((a, b) => a.amount - b.amount);
+  } else if (sortBy === "dateAsc") {
+    filteredData.sort((a, b) => a.title.localeCompare(b.title));
+  } else {
+    filteredData.sort(
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+    );
+  }
+
+  //searchingg
+  if (search) {
+    const searchLower = search.toLowerCase();
+    filteredData = filteredData.filter(
+      (expense) =>
+        expense.category.toLowerCase().includes(searchLower) ||
+        expense.description.toLowerCase().includes(searchLower)
+    );
+  }
+
   return (
     <div className="expenses">
       <div className="expenses-list-header">
         <h2>Your Expenses</h2>
         <p>Showing 12 of 45 expenses</p>
       </div>
-      {data.length === 0 ? (
-        <p>No Expenses Found</p>
+      {filteredData.length === 0 ? (
+        <p style={{ textAlign: "center" }}>No Expenses Found</p>
       ) : (
-        data.map((data, idx) => (
+        filteredData.map((data, idx) => (
           <ExpenseCard
             key={idx}
             id={data.id}

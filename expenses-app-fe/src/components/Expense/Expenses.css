@@ -6,7 +6,7 @@
 }
 
 .expenses-list-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: var(--primary-gradient);
     margin-top: -25px;
     border-bottom: 1px solid #eee;
     border-radius: 18px 18px 0 0;
