@@ -30,7 +30,7 @@ const ExpenseCard = ({
       <div className="expense-category-n-date">
         <span className="expense-category">{category}</span>
         <span className="expense-date">
-          {new Date(date).toLocaleDateString()}
+          {new Date(date).toLocaleString()}
         </span>
       </div>
 
