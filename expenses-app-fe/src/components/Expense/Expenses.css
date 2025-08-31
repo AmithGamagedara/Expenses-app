@@ -1,0 +1,27 @@
+.expenses {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.expenses-list-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    margin-top: -25px;
+    border-bottom: 1px solid #eee;
+    border-radius: 18px 18px 0 0;
+}
+
+.expenses-list-header h2 {
+    padding: 25px;
+    color: #ffffff;
+}
+
+.expenses-list-header p {
+    color: #eee;
+    margin-left: 25px;
+    margin-top: -34px;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+

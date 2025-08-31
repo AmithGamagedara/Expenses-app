@@ -27,7 +27,7 @@ export const createExpense = async (
 
 export const updateExpense = async (
   id: string,
-  updatedExpense: Promise<Expense>
+  updatedExpense: Omit<Expense, "id">
 ): Promise<Expense> => {
   try {
     const response = await axios.put(`${BASE_URL}/${id}`, updatedExpense);

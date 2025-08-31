@@ -48,12 +48,14 @@ function ExpenseForm({ onAdded }: ExpenseFormProps) {
           value={title}
           placeholder="e.g. Lunch at Cafe"
           onChange={(e) => setTitle(e.target.value)}
+          required
         />
         <label>Amount*</label>
         <input
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
           placeholder="0.00"
+          required
         />
         <label>Category*</label>
         <select value={category} onChange={(e) => setCategory(e.target.value)}>
