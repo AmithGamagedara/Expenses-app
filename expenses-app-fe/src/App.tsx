@@ -5,7 +5,7 @@ import ExpenseForm from "./components/Form/ExpenseForm";
 import { Expense as ExpenseType } from "./types/types";
 import Expenses from "./components/Expense/Expenses";
 import { CardList } from "./components/Card/CardList";
-import DataSorting from "./components/Sort/DataSorting";
+import DataSorting from "./components/Sort/FilterPanel";
 import { FilterProvider } from "./context/FilterContext";
 
 

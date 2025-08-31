@@ -1,4 +1,3 @@
-// FilterContext.tsx
 import React, { createContext, useState, ReactNode } from "react";
 
 interface FilterContextType {
@@ -6,6 +5,8 @@ interface FilterContextType {
   setCategory: (category: string) => void;
   sortBy: string;
   setSortBy: (sortBy: string) => void;
+  search: string;
+  setSearch: (search: string) => void;
 }
 
 export const FilterContext = createContext<FilterContextType>({
@@ -13,6 +14,8 @@ export const FilterContext = createContext<FilterContextType>({
   setCategory: () => {},
   sortBy: "",
   setSortBy: () => {},
+  search: "",
+  setSearch: () => {},
 });
 
 interface Props {
@@ -22,9 +25,12 @@ interface Props {
 export const FilterProvider: React.FC<Props> = ({ children }) => {
   const [category, setCategory] = useState<string>("");
   const [sortBy, setSortBy] = useState<string>("");
+  const [search, setSearch] = useState<string>("");
 
   return (
-    <FilterContext.Provider value={{ category, setCategory, sortBy, setSortBy }}>
+    <FilterContext.Provider
+      value={{ category, setCategory, sortBy, setSortBy, search, setSearch }}
+    >
       {children}
     </FilterContext.Provider>
   );
