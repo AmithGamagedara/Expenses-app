@@ -50,5 +50,8 @@ npm start
 ```
 
 
+⚠️ Note: This project uses a backend API for managing expenses. To fully use the app, make sure the backend is running or replace API calls with mock data.
+
+
 
 
