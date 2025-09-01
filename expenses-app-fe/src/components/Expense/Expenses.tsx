@@ -7,9 +7,10 @@ import { FilterContext } from "../../context/FilterContext";
 interface ExpensesProps {
   data: any[];
   onDeleted: () => void;
+  onEdit: (expense: any) => void;
 }
 
-const Expenses = ({ data, onDeleted }: ExpensesProps) => {
+const Expenses = ({ data, onDeleted, onEdit }: ExpensesProps) => {
   const { category, sortBy, search } = useContext(FilterContext);
 
   const handleDelete = async (id: string) => {
@@ -54,7 +55,9 @@ const Expenses = ({ data, onDeleted }: ExpensesProps) => {
     <div className="expenses">
       <div className="expenses-list-header">
         <h2>Your Expenses</h2>
-        <p>Showing {filteredData.length} of {data.length} expenses</p>
+        <p>
+          Showing {filteredData.length} of {data.length} expenses
+        </p>
       </div>
       {filteredData.length === 0 ? (
         <p style={{ textAlign: "center" }}>No Expenses Found</p>
@@ -69,6 +72,7 @@ const Expenses = ({ data, onDeleted }: ExpensesProps) => {
             date={data.date}
             description={data.description}
             onDelete={handleDelete}
+            onEdit={() => onEdit(data)}
           />
         ))
       )}
