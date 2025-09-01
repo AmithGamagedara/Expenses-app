@@ -1,48 +1,38 @@
-import React, { useState } from "react";
-import { createExpense } from "../../api/api";
 import { Expense } from "../../types/types";
 import "./ExpenseForm.css";
+import { useExpenseForm } from "../../hooks/useExpenseForm";
 
 interface ExpenseFormProps {
   onAdded: () => void;
+  onUpdated: () => void;
+  editExpense?: Expense | null;
+  clearEdit: () => void;
 }
 
-function ExpenseForm({ onAdded }: ExpenseFormProps) {
-  const [title, setTitle] = useState("");
-  const [amount, setAmount] = useState("");
-  const [category, setCategory] = useState("");
-  const [date, setDate] = useState("");
-  const [description, setDescription] = useState("");
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    try {
-      const newExpense: Omit<Expense, "id"> = {
-        title,
-        amount: parseFloat(amount),
-        category,
-        date,
-        description,
-      };
-      await createExpense(newExpense);
-      alert("Successfully Added");
-
-      setTitle("");
-      setAmount("");
-      setCategory("");
-      setDate("");
-      setDescription("");
-
-      onAdded();
-    } catch (error) {
-      alert("Error creating expense");
-    }
-  };
+function ExpenseForm({
+  onAdded,
+  onUpdated,
+  editExpense,
+  clearEdit,
+}: ExpenseFormProps) {
+  const {
+    title,
+    setTitle,
+    amount,
+    setAmount,
+    category,
+    setCategory,
+    date,
+    setDate,
+    description,
+    setDescription,
+    handleSubmit,
+  } = useExpenseForm({ editExpense, clearEdit, onAdded, onUpdated });
 
   return (
     <div className="container">
       <form onSubmit={handleSubmit}>
-        <h2>Add New Expense</h2>
+        <h2>{editExpense ? "Edit Expense" : "Add New Expense"}</h2>
         <label>Title*</label>
         <input
           value={title}
@@ -82,7 +72,9 @@ function ExpenseForm({ onAdded }: ExpenseFormProps) {
           onChange={(e) => setDescription(e.target.value)}
           placeholder="Optional details about this expense..."
         />
-        <button type="submit">Add Expense</button>
+        <button type="submit">
+          {editExpense ? "Update Expense" : "Add Expense"}
+        </button>
       </form>
     </div>
   );

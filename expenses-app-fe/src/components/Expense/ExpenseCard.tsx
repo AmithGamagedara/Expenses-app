@@ -9,6 +9,7 @@ interface ExpenseCardProps {
   date: string;
   description: string;
   onDelete: (id: string) => void;
+  onEdit: () => void;
 }
 
 const ExpenseCard = ({
@@ -19,6 +20,7 @@ const ExpenseCard = ({
   date,
   description,
   onDelete,
+  onEdit,
 }: ExpenseCardProps) => {
   return (
     <div className="expense-card">
@@ -29,15 +31,15 @@ const ExpenseCard = ({
 
       <div className="expense-category-n-date">
         <span className="expense-category">{category}</span>
-        <span className="expense-date">
-          {new Date(date).toLocaleString()}
-        </span>
+        <span className="expense-date">{new Date(date).toLocaleString()}</span>
       </div>
 
       <p className="expense-description">{description}</p>
 
       <div className="expense-actions">
-        <button className="edit-btn">✏️ Edit</button>
+        <button className="edit-btn" onClick={onEdit}>
+          ✏️ Edit
+        </button>
         <button className="delete-btn" onClick={() => onDelete(id)}>
           🗑️ Delete
         </button>
