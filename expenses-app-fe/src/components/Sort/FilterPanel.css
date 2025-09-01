@@ -1,0 +1,48 @@
+.filter-panel {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    margin: 6px 0;
+    background-color: white;
+    padding: 25px;
+    border-radius: 18px;
+    margin-top: -16px;
+}
+
+.filter-panel>div {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.filter-panel>div:last-child {
+    flex: 2;
+}
+
+.filter-panel label {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.filter-panel select,
+.filter-panel input {
+    padding: 14px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+
+@media (max-width: 768px) {
+    .filter-panel {
+        flex-direction: column;
+    }
+
+    .filter-panel>div {
+        flex: unset;
+        width: 100%;
+    }
+
+    .filter-panel>div:last-child {
+        flex: unset;
+    }
+}
